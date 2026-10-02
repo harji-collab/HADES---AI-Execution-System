@@ -1,0 +1,34 @@
+{
+  "note": "Local demo fixture. Topic lists are a typical secondary/undergraduate outline, not an official syllabus.",
+  "subjects": {
+    "Physics": {
+      "aliases": ["physics"],
+      "topics": ["Mechanics", "Thermodynamics", "Waves and optics", "Electricity and magnetism", "Modern physics"]
+    },
+    "Chemistry": {
+      "aliases": ["chemistry", "chem"],
+      "topics": ["Atomic structure", "Chemical bonding", "Thermochemistry", "Organic reactions", "Equilibrium and kinetics"]
+    },
+    "Mathematics": {
+      "aliases": ["mathematics", "maths", "math"],
+      "topics": ["Algebra", "Calculus", "Trigonometry", "Probability and statistics", "Coordinate geometry"]
+    },
+    "Biology": {
+      "aliases": ["biology", "bio"],
+      "topics": ["Cell biology", "Genetics", "Human physiology", "Plant biology", "Ecology"]
+    },
+    "Computer Science": {
+      "aliases": ["computer science", "cs", "programming"],
+      "topics": ["Data structures", "Algorithms", "Databases", "Operating systems", "Computer networks"]
+    },
+    "History": {
+      "aliases": ["history"],
+      "topics": ["Ancient civilisations", "Medieval period", "Colonial era", "Freedom movement", "Modern world"]
+    },
+    "Economics": {
+      "aliases": ["economics", "econ"],
+      "topics": ["Demand and supply", "Market structures", "National income", "Money and banking", "International trade"]
+    }
+  },
+  "generic_topics": ["Core concepts", "Key definitions and formulas", "Worked examples", "Past papers"]
+}

@@ -1,0 +1,26 @@
+# Local secrets and environment
+.env
+.env.*
+!.env.example
+backend/.env
+
+# Python
+__pycache__/
+*.py[cod]
+backend/venv/
+venv/
+.venv/
+
+# JavaScript dependencies and build output
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# HADES generated files (trip outputs, weather cache)
+backend/outputs/
+backend/cache/
+
+# Local runtime/editor files
+.vscode/
+*.log
+*.tmp

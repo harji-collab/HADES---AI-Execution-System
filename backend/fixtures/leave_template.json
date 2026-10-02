@@ -1,0 +1,22 @@
+{
+  "recipients": {
+    "manager": {"salutation": "Hi", "title": "Manager"},
+    "boss": {"salutation": "Hi", "title": "Manager"},
+    "team lead": {"salutation": "Hi", "title": "Team Lead"},
+    "lead": {"salutation": "Hi", "title": "Team Lead"},
+    "supervisor": {"salutation": "Hi", "title": "Supervisor"},
+    "hr": {"salutation": "Hello", "title": "HR Team"}
+  },
+  "subject": "Leave request: {date_long}",
+  "body": [
+    "{salutation} {title},",
+    "",
+    "I would like to request leave on {date_long} for a trip to {destination}.",
+    "I will make sure my current work is handed over before I leave and will be reachable by phone for anything urgent.",
+    "",
+    "Please let me know if this works.",
+    "",
+    "Thanks,",
+    "[Your name]"
+  ]
+}

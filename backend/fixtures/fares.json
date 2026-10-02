@@ -1,0 +1,21 @@
+{
+  "note": "Local demo fixture. These are illustrative fares, not live prices.",
+  "currency": "INR",
+  "origin": "Chennai",
+  "routes": {
+    "Bengaluru": {
+      "local_expenses": [
+        {"item": "Local transport in Bengaluru", "amount": 600},
+        {"item": "Meals", "amount": 400}
+      ],
+      "default": [
+        {"id": "train_shatabdi", "mode": "train", "service": "Chennai-Bengaluru Shatabdi Express (CC)", "departure": "06:00", "outbound": 1300, "return": 1300},
+        {"id": "bus_night", "mode": "bus", "service": "Overnight sleeper bus", "departure": "22:30", "outbound": 1100, "return": 1100}
+      ],
+      "sunday": [
+        {"id": "train_shatabdi_weekend", "mode": "train", "service": "Chennai-Bengaluru Shatabdi Express (CC, weekend fare)", "departure": "06:00", "outbound": 1800, "return": 1800},
+        {"id": "bus_night", "mode": "bus", "service": "Overnight sleeper bus", "departure": "22:30", "outbound": 1100, "return": 1100}
+      ]
+    }
+  }
+}
