@@ -63,6 +63,11 @@ GROQ_MODELS = [
 
 MISSIONS = {}
 
+
+def get_mission_state(mission_id):
+    """Read process-local mission state. This is intentionally not durable."""
+    return MISSIONS.get(mission_id)
+
 IGNORE = {
     ".git",
     "node_modules",
@@ -87,10 +92,26 @@ app = FastAPI(
     version=APP_VERSION,
 )
 
+
+class VercelApiPrefixMiddleware:
+    """Map Vercel's preserved /api prefix onto the existing local routes."""
+    def __init__(self, application):
+        self.application = application
+
+    async def __call__(self, scope, receive, send):
+        if scope["type"] == "http" and (scope["path"] == "/api" or scope["path"].startswith("/api/")):
+            scope = dict(scope)
+            scope["path"] = scope["path"][4:] or "/"
+            scope["raw_path"] = scope["path"].encode("utf-8")
+        await self.application(scope, receive, send)
+
+
+app.add_middleware(VercelApiPrefixMiddleware)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -2080,13 +2101,10 @@ def get_mission(
     mission_id: str
 ):
 
-    return MISSIONS.get(
-        mission_id,
-        {
-            "status": "error",
-            "message": "Mission not found.",
-        },
-    )
+    mission = get_mission_state(mission_id)
+    if mission is None:
+        raise HTTPException(status_code=404, detail="Mission not found. Mission state is process-local and may be lost after a restart.")
+    return mission
 
 
 @app.post("/workspace/scan")

@@ -20,7 +20,7 @@ import { MissionHistoryPage, SettingsPage, WorkspacePage } from "./components/Wo
 
 import "./App.css";
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? "http://127.0.0.1:8000" : "/api");
 const DEMO_GOAL = "Create a 3 item checklist for a reliable HADES hackathon demo";
 const TRIP_GOAL = "Get me ready for my Bengaluru trip on Friday: check the weather, build a packing list, add it to my calendar, draft a leave email to my manager, keep total cost under ₹4,000";
 
